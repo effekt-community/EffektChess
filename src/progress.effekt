@@ -78,7 +78,7 @@ def readProgress(): Progress = {
   val content = readFile("progress.ini") 
   with on[OutOfBounds].panic;
   val lines = content.split("\n")
-  with on[WrongFormat].panic;
+  with crash("not an integer");
   Progress(
     lines.get(0).toInt, 
     lines.get(1).toInt, 
